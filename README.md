@@ -112,6 +112,77 @@ local environment, it is also built in to the `learn` command. Running `npm
 install` creates a folder called `node_modules`, which contains all the
 downloaded packages.
 
+When building a project from scratch, as you build it, you may realize you
+_need_ some specific package. Running `npm install` while inside a project
+directory _will not work_ unless there is a correctly structured `package.json`
+file present.
+
+## A Little More on `package.json`
+
+The `package.json` is a key part of sharing JS code repositories on sites like
+GitHub.  Instead of having to bundle all the `node_modules` with every project,
+we just include a small file, listing out what npm needs to get for the project.
+
+The file also typically includes information about the project, such as the
+name, version, author and license.
+
+The `package.json` file is written in JSON, so like an object in JavaScript, it
+is always wrapped in curly braces, and includes keys and values. A basic
+example:
+
+```json
+{
+  "name": "intro-to-npm-readme",
+  "version": "1.0.0",
+  "description": "An introduction to npm and package.json",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo 'hot dog'"
+  },
+  "dependencies": {
+    "learn-browser": "^0.1.17"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/learn-co-curriculum/intro-to-npm-readme.git"
+  },
+  "author": "flatironschool",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/learn-co-curriculum/intro-to-npm-readme/issues"
+  },
+  "homepage": "https://github.com/learn-co-curriculum/intro-to-npm-readme#readme"
+}
+```
+
+In your terminal, if you are in a directory with the above `package.json` file
+present, running `npm test` will return "hot dog." This lesson actually does include this `package.json` file, so try it for yourself!
+
+Having this file present also means it is possible to install additional packages.  There is one dependency already included:
+
+```json
+"dependencies": {
+  "learn-browser": "^0.1.17"
+}
+```
+
+Running something like `npm install react` will add a second dependency:
+
+```json
+"dependencies": {
+  "learn-browser": "^0.1.17",
+  "react": "^16.4.1"
+}
+```
+
+## `npm init`
+
+Since npm relies on a `package.json` file, it has a built in command to _build_
+`package.json` files. Running `npm init` on the command line will begin a series
+of prompts, asking about specific content to included in the file. At the end,
+it will create a file or edit an existing `package.json` file. Very handy when
+you are creating your own projects from scratch!
+
 #### Key Terms
 
 - npm - Node Package Manager, a command line tool for handling packages of reusable
