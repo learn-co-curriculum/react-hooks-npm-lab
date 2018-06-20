@@ -106,12 +106,11 @@ packages - _BUT!_ those packages also have _their own_ `package.json` with their
 own dependencies! `npm` must also get those packages, and if _those packages_
 have any dependencies, get them as well. So on and so on.
 
-You may have encountered `npm install` already, or you might not have. If you
-are using the in-browser Learn IDE, `npm install` is run immediately after the
-lesson is forked and cloned from GitHub.  If you are working in a local
-environment, it is also built in to the `learn` command. Running `npm install`
-creates a folder called `node_modules`, which contains all the downloaded
-packages.
+If you are using the in-browser Learn IDE, `npm install` is run immediately
+after the lesson is forked and cloned from GitHub.  If you are working in a
+local environment, it is also built in to the `learn` command. Running `npm
+install` creates a folder called `node_modules`, which contains all the
+downloaded packages.
 
 #### Key Terms
 
