@@ -1,10 +1,13 @@
 {
   "name": "intro-to-npm-lab",
   "version": "1.0.0",
-  "description": "A testtttt",
+  "description": "## Problem Statement",
   "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
   "scripts": {
-    "test": "echo \"catdog\""
+    "test": "node_modules/browser-sync/bin/browser-sync.js start --config node_modules/learn-browser/bs-config.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/learn-co-curriculum/intro-to-npm-readme/issues"
   },
-  "homepage": "https://github.com/learn-co-curriculum/intro-to-npm-readme#readme"
+  "homepage": "https://github.com/learn-co-curriculum/intro-to-npm-readme#readme",
+  "dependencies": {
+    "learn-browser": "^0.1.17",
+    "moment": "^2.22.2"
+  }
 }
