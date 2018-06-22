@@ -1,15 +1,19 @@
 # Node Package Management Lab
 
-## Problem Statement
+## Overview
 
 When using npm, it is often the case that we don't fully understand _everything_
-that happens under the hood.  When building web applications in React, along
-with Angular, Vue, etc... we work with the framework provided. Using npm, we can
-download specific packages of code, the 'framework', and connect them up to the files
-_we create_, allowing us to wield their powerful tools.
+that happens under the hood. Building modern JavaScript applications relies on
+our ability to use the tools built for us by others.
+
+When building web applications in React, along with Angular, Vue, etc... we work
+within the framework provided. Using npm, we can download specific packages of
+code, the 'framework', then connect them up to the files _we create_, allowing us
+to wield their powerful tools.
 
 In this lab, we are going to practice the process of setting up a `package.json`
-file, installing an npm package and connecting it to a JavaScript file.
+file. We will also install an npm package or two and connect it to a JavaScript
+file.
 
 ## Objectives
 
@@ -28,9 +32,9 @@ This directory doesn't appear to have any specs in it.
 ```
 
 The `learn` command is currently unable to run the tests. When we run `learn` in
-the terminal, it fires off the `npm install` command to set up the lab with the
-right dependencies. If we run `npm install`, though, we get an error that there
-is no `package.json` file:
+the terminal, it fires off the `npm install` command. This sets up the lab with
+the right dependencies. If we run `npm install` directly, though, we get an
+error that there is no `package.json` file:
 
 ```
 ENOENT: no such file or directory, open '.../package.json'
