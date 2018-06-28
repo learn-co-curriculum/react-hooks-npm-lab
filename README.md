@@ -1,19 +1,21 @@
 # Node Package Management Lab
 
+
 ## Overview
 
-When using npm, it is often the case that we don't fully understand _everything_
-that happens under the hood. Building modern JavaScript applications relies on
+When using npm, it is often the case that we aren't familiar with _all_ of the
+code in the dependency tree. Building modern JavaScript applications relies on
 our ability to use the tools built for us by others.
 
-When building web applications in React, along with Angular, Vue, etc... we work
-within the framework provided. Using npm, we can download specific packages of
-code, the 'framework', then connect them up to the files _we create_, allowing us
-to wield their powerful tools.
+When building web applications in React, along with Angular, Vue, etc., we work
+within the framework provided. Using npm, we download specific packages of code.
+The 'framework' then makes sure they are available in the code _we create_,
+allowing us to wield their powerful tools.
 
 In this lab, we are going to practice the process of setting up a `package.json`
-file. We will also install an npm package or two and connect it to a JavaScript
-file.
+file. We will also install an npm package or two and use their functionality in
+new code we write.
+
 
 ## Objectives
 
