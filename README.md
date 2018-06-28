@@ -56,30 +56,14 @@ Try running `npm install` again - ah, no error, but nothing else happens. OK, le
 Error: no test specified
 ```
 
-Bah humbug! Still not working.
+Bah humbug! Still not working. We are missing our testing framework and our `test` script! Let's fix both:
 
-###### Create a `test` Command
+###### Install a Testing Package
 
-The `learn-browser` package relies on a test script that will trigger the
-testing suite to run. In `package.json`, replace the `scripts` `test` key value
-with the following:
-
-```
-"scripts": {
-  "test": "node_modules/browser-sync/bin/browser-sync.js start --config node_modules/learn-browser/bs-config.js"
-},
-```
-
-Try running `learn` now. You should see tests! Hooray, now we can solve the tests!
-
-#### Install a Package
-
-In addition to `package.json`, we also need to add in the necessary dependencies
-that will run our tests.
+We need to add in the necessary dependencies that will run our tests.
 
 In the terminal, run `npm install learn-browser`. You should see `npm` take
-action start installing.  In `package.json`, when `npm` is finished, a new key
-will appear, `dependencies`, with one dependency inside:
+action. When `npm` is finished, `package.json` will be updated with a new key: `dependencies`, with one dependency inside:
 
 ```
 "dependencies": {
@@ -87,21 +71,42 @@ will appear, `dependencies`, with one dependency inside:
 }
 ```
 
-The version may be different, but this confirms that we've set up the package
-correctly.
+The version may be different, but this confirms that we've installed the package
+correctly. Now all we need is to make sure our `npm test` command knows to make
+use of that testing package.
+
+###### Create a `test` Command
+
+For `npm test` to work, we need a test script that will trigger the suite to
+run. In `package.json`, replace the `scripts` `test` key value with the
+following:
+
+```
+"scripts": {
+  "test": "node_modules/browser-sync/bin/browser-sync.js start --config node_modules/learn-browser/bs-config.js"
+},
+```
+
+Try running `npm test` now. Everything should be working and our browser should
+open up to a test results view.
+
+Let's recap what we just did:
+1. Initialized our npm project using `npm init`, which created `package.lock`  
+2. Installed a testing framework, `learn-browser`, with `npm install learn-browser`
+3. Edited the default `npm test` script to run our testing suite when called
 
 
+## Add a Second Package
 
-#### Add a Second Package
+The tests are looking for `moment()`, a function that comes with
+[moment.js][moment]. Moment.js is a handy package for displaying dates and
+times.
 
-The tests are looking for a `moment()`, a function that comes with
-[moment.js][moment].  Moment.js is a handy package for displaying dates and
-time.
+Install the `moment` package and run `npm test` once again.
 
-Install the `moment` package and run `learn` once again.
-
-If `package.json` file has the correct packages, and the node modules have been
+If `package.json` file has the correct packages, and the node module has been
 installed, the test will pass and you should see a colorful clock appear!
+
 
 ## Conclusion
 
@@ -111,7 +116,7 @@ specific pieces of the project.
 
 Although we only installed two packages in this lab, there are many layers of
 dependencies for them, and hundreds of additional dependencies were installed.
-It isn't necessary to understand _how_ each of these works.  The main thing to
+It isn't necessary to understand _how_ each of these works. The main thing to
 grasp is how to implement and use the specific dependencies you need, in this
 case, `learn-browser` and `moment`.
 
