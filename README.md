@@ -29,7 +29,8 @@ new code we write.
 #### Get the Tests Working
 
 There is only one tests for this lab written in `test/indexTest.js`, but we
-aren't able to run it! Try executing `learn test` or `npm test` (_Note_: `learn test` _wraps_ `npm test`): 
+aren't able to run it! Try executing `learn test` or `npm test` (_Note_: `learn
+test` _wraps_ `npm test`): 
 
 ```
 > npm test
@@ -37,9 +38,9 @@ This directory doesn't appear to have any specs in it.
 ```
 
 This output makes sense because we don't have a `package.json` file that
-describes what the command `test` is supposed to do! This means to get to the
-tests on this lab, we will need to _create_ the file. How do we go about doing
-that? By running `npm init` of course! 
+describes what the command `test` is supposed to do! To get the tests working,
+we will need to _create_ the file. How do we go about doing that? By running
+`npm init` of course! 
 
 
 ###### Create a `package.json` File
@@ -48,22 +49,23 @@ The `package.json` can be written quickly from scratch, but we already have a
 handy command for creating these files: `npm init`.
 
 Run `npm init` and follow the prompts until a `package.json` file is created.
-
-Try running `npm install` again - ah, no error, but nothing else happens. OK, let's run the tests: 
+Following, run the tests with `npm test`: 
 
 ```
 > npm test
 Error: no test specified
 ```
 
-Bah humbug! Still not working. We are missing our testing framework and our `test` script! Let's fix both:
+Bah humbug! Our tests in `test/` still aren't working. We are missing our
+testing framework and a `test` script that makes use of it! Let's fix both:
 
 ###### Install a Testing Package
 
 We need to add in the necessary dependencies that will run our tests.
 
 In the terminal, run `npm install learn-browser`. You should see `npm` take
-action. When `npm` is finished, `package.json` will be updated with a new key: `dependencies`, with one dependency inside:
+action. When `npm` is finished, `package.json` will be updated with a new key:
+`dependencies`, with one dependency inside:
 
 ```
 "dependencies": {
@@ -88,7 +90,10 @@ following:
 ```
 
 Try running `npm test` now. Everything should be working and our browser should
-open up to a test results view.
+open up to a test results view. This is because the `test` script is now
+correctly saying 'go run the code testing suite code, located in
+`browser-sync.js` with `node_modules`'. As you can guess, `browser-sync`
+provides us with an in-browser iew of our test results.
 
 Let's recap what we just did:
 1. Initialized our npm project using `npm init`, which created `package.lock`  
