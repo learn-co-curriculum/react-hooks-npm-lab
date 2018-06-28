@@ -60,9 +60,9 @@ Bah humbug! Still not working.
 
 ###### Create a `test` Command
 
-The `learn-browser` package relies on a test script that will trigger a new
-browser window with the tests inside.  Replace the `scripts` part of your
-`package.json` file with the following:
+The `learn-browser` package relies on a test script that will trigger the
+testing suite to run. In `package.json`, replace the `scripts` `test` key value
+with the following:
 
 ```
 "scripts": {
