@@ -93,7 +93,7 @@ Try running `npm test` now. Everything should be working and our browser should
 open up to a test results view. This is because the `test` script is now
 correctly saying 'go run the code testing suite code, located in
 `browser-sync.js` with `node_modules`'. As you can guess, `browser-sync`
-provides us with an in-browser iew of our test results.
+provides us with an in-browser view of our test results.
 
 Let's recap what we just did:
 1. Initialized our npm project using `npm init`, which created `package.lock`  
