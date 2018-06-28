@@ -1,19 +1,21 @@
 # Node Package Management Lab
 
+
 ## Overview
 
-When using npm, it is often the case that we don't fully understand _everything_
-that happens under the hood. Building modern JavaScript applications relies on
+When using npm, it is often the case that we aren't familiar with _all_ of the
+code in the dependency tree. Building modern JavaScript applications relies on
 our ability to use the tools built for us by others.
 
-When building web applications in React, along with Angular, Vue, etc... we work
-within the framework provided. Using npm, we can download specific packages of
-code, the 'framework', then connect them up to the files _we create_, allowing us
-to wield their powerful tools.
+When building web applications in React, along with Angular, Vue, etc., we work
+within the framework provided. Using npm, we download specific packages of code.
+The 'framework' then makes sure they are available in the code _we create_,
+allowing us to wield their powerful tools.
 
 In this lab, we are going to practice the process of setting up a `package.json`
-file. We will also install an npm package or two and connect it to a JavaScript
-file.
+file. We will also install an npm package or two and use their functionality in
+new code we write.
+
 
 ## Objectives
 
@@ -21,46 +23,49 @@ file.
 - Practice installing an npm package
 - Introduce how to _import_ a package into a different JavaScript file
 
-#### The Tests Are Not Working
 
-There is only one tests for this lab written in `test/indexTest.js`. However, if
-you run `learn`, you should see an error in the terminal:
+## Deliverables
+
+#### Get the Tests Working
+
+There is only one tests for this lab written in `test/indexTest.js`, but we
+aren't able to run it! Try executing `learn test` or `npm test` (_Note_: `learn
+test` _wraps_ `npm test`): 
 
 ```
-> learn
+> npm test
 This directory doesn't appear to have any specs in it.
 ```
 
-The `learn` command is currently unable to run the tests. When we run `learn` in
-the terminal, it fires off the `npm install` command. This sets up the lab with
-the right dependencies. If we run `npm install` directly, though, we get an
-error that there is no `package.json` file:
+This output makes sense because we don't have a `package.json` file that
+describes what the command `test` is supposed to do! To get the tests working,
+we will need to _create_ the file. How do we go about doing that? By running
+`npm init` of course! 
 
-```
-ENOENT: no such file or directory, open '.../package.json'
-```
 
-So, first, to even get to the tests on this lab, we will need to _create_ the
-file.
+###### Create a `package.json` File
 
-#### Create a `package.json` File
-
-The `package.json` can be written manually pretty quickly, but we have already
-have a handy command for creating these files: `npm init`
+The `package.json` can be written quickly from scratch, but we already have a
+handy command for creating these files: `npm init`.
 
 Run `npm init` and follow the prompts until a `package.json` file is created.
+Following, run the tests with `npm test`: 
 
-Try running `npm install` again - ah, no error, but nothing else happens. The
-tests aren't running yet.
+```
+> npm test
+Error: no test specified
+```
 
-#### Install a Package
+Bah humbug! Our tests in `test/` still aren't working. We are missing our
+testing framework and a `test` script that makes use of it! Let's fix both:
 
-In addition to `package.json`, we also need to add in the necessary dependencies
-that will run our tests.
+###### Install a Testing Package
+
+We need to add in the necessary dependencies that will run our tests.
 
 In the terminal, run `npm install learn-browser`. You should see `npm` take
-action start installing.  In `package.json`, when `npm` is finished, a new key
-will appear, `dependencies`, with one dependency inside:
+action. When `npm` is finished, `package.json` will be updated with a new key:
+`dependencies`, with one dependency inside:
 
 ```
 "dependencies": {
@@ -68,14 +73,15 @@ will appear, `dependencies`, with one dependency inside:
 }
 ```
 
-The version may be different, but this confirms that we've set up the package
-correctly.
+The version may be different, but this confirms that we've installed the package
+correctly. Now all we need is to make sure our `npm test` command knows to make
+use of that testing package.
 
-#### Add the Test Script
+###### Create a `test` Command
 
-The `learn-browser` package relies on a test script that will trigger a new
-browser window with the tests inside.  Replace the `scripts` part of your
-`package.json` file with the following:
+For `npm test` to work, we need a test script that will trigger the suite to
+run. In `package.json`, replace the `scripts` `test` key value with the
+following:
 
 ```
 "scripts": {
@@ -83,18 +89,29 @@ browser window with the tests inside.  Replace the `scripts` part of your
 },
 ```
 
-Try running `learn` now. You should see tests! Hooray, now we can solve the tests!
+Try running `npm test` now. Everything should be working and our browser should
+open up to a test results view. This is because the `test` script is now
+correctly saying 'go run the code testing suite code, located in
+`browser-sync.js` with `node_modules`'. As you can guess, `browser-sync`
+provides us with an in-browser view of our test results.
 
-#### Add a Second Package
+Let's recap what we just did:
+1. Initialized our npm project using `npm init`, which created `package.lock`  
+2. Installed a testing framework, `learn-browser`, with `npm install learn-browser`
+3. Edited the default `npm test` script to run our testing suite when called
 
-The tests are looking for a `moment()`, a function that comes with
-[moment.js][moment].  Moment.js is a handy package for displaying dates and
-time.
 
-Install the `moment` package and run `learn` once again.
+## Add a Second Package
 
-If `package.json` file has the correct packages, and the node modules have been
+The tests are looking for `moment()`, a function that comes with
+[moment.js][moment]. Moment.js is a handy package for displaying dates and
+times.
+
+Install the `moment` package and run `npm test` once again.
+
+If `package.json` file has the correct packages, and the node module has been
 installed, the test will pass and you should see a colorful clock appear!
+
 
 ## Conclusion
 
@@ -104,7 +121,7 @@ specific pieces of the project.
 
 Although we only installed two packages in this lab, there are many layers of
 dependencies for them, and hundreds of additional dependencies were installed.
-It isn't necessary to understand _how_ each of these works.  The main thing to
+It isn't necessary to understand _how_ each of these works. The main thing to
 grasp is how to implement and use the specific dependencies you need, in this
 case, `learn-browser` and `moment`.
 
