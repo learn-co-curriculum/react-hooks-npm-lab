@@ -23,37 +23,54 @@ new code we write.
 - Practice installing an npm package
 - Introduce how to _import_ a package into a different JavaScript file
 
-#### The Tests Are Not Working
 
-There is only one tests for this lab written in `test/indexTest.js`. However, if
-you run `learn`, you should see an error in the terminal:
+## Deliverables
+
+#### Get the Tests Working
+
+There is only one tests for this lab written in `test/indexTest.js`, but we
+aren't able to run it! Try executing `learn test` or `npm test` (_Note_: `learn test` _wraps_ `npm test`): 
 
 ```
-> learn
+> npm test
 This directory doesn't appear to have any specs in it.
 ```
 
-The `learn` command is currently unable to run the tests. When we run `learn` in
-the terminal, it fires off the `npm install` command. This sets up the lab with
-the right dependencies. If we run `npm install` directly, though, we get an
-error that there is no `package.json` file:
+This output makes sense because we don't have a `package.json` file that
+describes what the command `test` is supposed to do! This means to get to the
+tests on this lab, we will need to _create_ the file. How do we go about doing
+that? By running `npm init` of course! 
 
-```
-ENOENT: no such file or directory, open '.../package.json'
-```
 
-So, first, to even get to the tests on this lab, we will need to _create_ the
-file.
+###### Create a `package.json` File
 
-#### Create a `package.json` File
-
-The `package.json` can be written manually pretty quickly, but we have already
-have a handy command for creating these files: `npm init`
+The `package.json` can be written quickly from scratch, but we already have a
+handy command for creating these files: `npm init`.
 
 Run `npm init` and follow the prompts until a `package.json` file is created.
 
-Try running `npm install` again - ah, no error, but nothing else happens. The
-tests aren't running yet.
+Try running `npm install` again - ah, no error, but nothing else happens. OK, let's run the tests: 
+
+```
+> npm test
+Error: no test specified
+```
+
+Bah humbug! Still not working.
+
+###### Create a `test` Command
+
+The `learn-browser` package relies on a test script that will trigger a new
+browser window with the tests inside.  Replace the `scripts` part of your
+`package.json` file with the following:
+
+```
+"scripts": {
+  "test": "node_modules/browser-sync/bin/browser-sync.js start --config node_modules/learn-browser/bs-config.js"
+},
+```
+
+Try running `learn` now. You should see tests! Hooray, now we can solve the tests!
 
 #### Install a Package
 
@@ -73,19 +90,7 @@ will appear, `dependencies`, with one dependency inside:
 The version may be different, but this confirms that we've set up the package
 correctly.
 
-#### Add the Test Script
 
-The `learn-browser` package relies on a test script that will trigger a new
-browser window with the tests inside.  Replace the `scripts` part of your
-`package.json` file with the following:
-
-```
-"scripts": {
-  "test": "node_modules/browser-sync/bin/browser-sync.js start --config node_modules/learn-browser/bs-config.js"
-},
-```
-
-Try running `learn` now. You should see tests! Hooray, now we can solve the tests!
 
 #### Add a Second Package
 

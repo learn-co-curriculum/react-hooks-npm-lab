@@ -1,0 +1,22 @@
+{
+  "name": "x",
+  "version": "1.0.0",
+  "description": "x",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/learn-co-curriculum/npm-lab.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/learn-co-curriculum/npm-lab/issues"
+  },
+  "homepage": "https://github.com/learn-co-curriculum/npm-lab#readme"
+}
