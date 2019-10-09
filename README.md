@@ -28,7 +28,7 @@ new code we write.
 
 #### Get the Tests Working
 
-There is only one tests for this lab written in `test/indexTest.js`, but we
+There is only one test for this lab written in `test/indexTest.js`, but we
 aren't able to run it! Try executing `learn test` or `npm test` (_Note_: `learn
 test` _wraps_ `npm test`): 
 
