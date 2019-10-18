@@ -88,7 +88,7 @@ helps with reporting. When you run `learn` or `learn test` in a lab, `npm test` 
 Scripts are often useful for things like testing or to start a necessary
 process, like a local server.
 
-###### Install a Package
+### Install a Package
 
 With `package.json` set up, we can now add a package we want to include
 in our project.
