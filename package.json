@@ -1,0 +1,19 @@
+{
+  "name": "npm-lab",
+  "version": "1.0.0",
+  "description": "A code-along for creating package.json files",
+  "main": "index.js",
+  "scripts": {
+    "test": "n/a"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/learn-co-curriculum/npm-lab.git"
+  },
+  "author": "flatironschool",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "bugs": {
+    "url": "https://github.com/learn-co-curriculum/npm-lab/issues"
+  },
+  "homepage": "https://github.com/learn-co-curriculum/npm-lab#readme"
+}
