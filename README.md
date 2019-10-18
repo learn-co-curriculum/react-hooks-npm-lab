@@ -1,21 +1,30 @@
-# Node Package Management Lab
-
+# Node Package Management Code-Along
 
 ## Overview
 
 When using npm, it is often the case that we aren't familiar with _all_ of the
 code in the dependency tree. Building modern JavaScript applications relies on
-our ability to use the tools built for us by others.
+our ability to use the tools built for us by others. As it turns out, most of
+those tools are _also_ built using _other people's_ tools. One package may be
+used in another, which is used in another, and another, and so on...
 
-When building web applications in React, along with Angular, Vue, etc., we work
-within the framework provided. Using npm, we download specific packages of code.
-The 'framework' then makes sure they are available in the code _we create_,
-allowing us to wield their powerful tools.
+Using npm, we download specific packages of code. If those packages have
+dependencies, the dependencies are also downloaded in a recursive manner. For
+the purposes of our own application, however, **we only need to know about the
+node packages _we_ specifically need to get our app working**. We don't need to
+worry about what packages _those_ packages need. Why? Because every node package
+includes a `package.json` file that lists out all dependencies. This file
+lets Node know what to download when we run `npm install`. Node will download
+all the packages, check the `package.json` files present, then download any
+additional packages, and repeat. 
 
-In this lab, we are going to practice the process of setting up a `package.json`
+We will see in future labs that as the number of packages increases, more and
+more happens when we run `npm install`. All _we_ need to worry about, though, is
+the top-level - what is listed in _our_ application's `package.json` file.
+
+In this code-along, we are going to practice the process of setting up a `package.json`
 file. We will also install an npm package or two and use their functionality in
 new code we write.
-
 
 ## Objectives
 
@@ -23,106 +32,100 @@ new code we write.
 - Practice installing an npm package
 - Introduce how to _import_ a package into a different JavaScript file
 
+## Getting Started
 
-## Deliverables
+Before we can create a `package.json` file, we'll need an project and a project
+folder to contain all the files. For this code-along, we'll be building out a
+clock application that changes color every second.
 
-#### Get the Tests Working
+This lesson already has its own `package.json` file, so a sub-folder has been
+created for us to use, `color-clock`, that contains some basic starter files for
+the project. Change directory into this folder on your terminal before
+continuing.
 
-There is only one test for this lab written in `test/indexTest.js`, but we
-aren't able to run it! Try executing `learn test` or `npm test` (_Note_: `learn
-test` _wraps_ `npm test`): 
+### Create a `package.json` File
 
-```
-> npm test
-This directory doesn't appear to have any specs in it.
-```
-
-This output makes sense because we don't have a `package.json` file that
-describes what the command `test` is supposed to do! To get the tests working,
-we will need to _create_ the file. How do we go about doing that? By running
-`npm init` of course! 
-
-
-###### Create a `package.json` File
-
-The `package.json` can be written quickly from scratch, but we already have a
+The `package.json` can be written quickly from scratch, but we actually have a
 handy command for creating these files: `npm init`.
 
-Run `npm init` and follow the prompts until a `package.json` file is created.
-Following, run the tests with `npm test`: 
+Run `npm init` and you will be prompted to confirm the information that will
+be stored in `package.json`, starting with the name of the project.
 
-```
-> npm test
-Error: no test specified
-```
+Most prompts will provide a default value. Some are blank and can be left this
+way for now. Follow the prompts until the end and a fully constructed
+`package.json` file will appear in the `color-clock` directory.
 
-Bah humbug! Our tests in `test/` still aren't working. We are missing our
-testing framework and a `test` script that makes use of it! Let's fix both:
+### Add a Script
 
-###### Install a Testing Package
+In the process of creating the `package.json` file, you wre prompted to
+write a test script. Let's add a working script in to see how this works.
 
-We need to add in the necessary dependencies that will run our tests.
+Open the newly created `package.json` file and look for a section
+titled `"scripts"`. Let's replace the default `"test"` script with
+an shell command:
 
-In the terminal, run `npm install learn-browser`. You should see `npm` take
-action. When `npm` is finished, `package.json` will be updated with a new key:
-`dependencies`, with one dependency inside:
-
-```
-"dependencies": {
-  "learn-browser": "^0.1.17"
+```json
+"scripts": {
+  "test": "echo 'Hello World!'"
 }
 ```
 
-The version may be different, but this confirms that we've installed the package
-correctly. Now all we need is to make sure our `npm test` command knows to make
-use of that testing package.
+We can now call this script and have it run by using the command `npm test` in the terminal (if that doesn't work, try `npm run test`). You
+should see a print out of `Hello World!`.
 
-###### Create a `test` Command
+In all the JavaScript-based labs you've encountered so far, this sort
+of script is how we run tests. If you look at the `"test"` script on
+previous labs, most will have something like this:
 
-For `npm test` to work, we need a test script that will trigger the suite to
-run. In `package.json`, replace the `scripts` `test` key value with the
-following:
-
-```
-"scripts": {
-  "test": "node_modules/browser-sync/bin/browser-sync.js start --config node_modules/learn-browser/bs-config.js"
-},
+```bash
+"test": "mocha -R mocha-multi --reporter-options spec=-,json=.results.json"
 ```
 
-Try running `npm test` now. Everything should be working and our browser should
-open up to a test results view. This is because the `test` script is now
-correctly saying 'go run the code testing suite code, located in
-`browser-sync.js` with `node_modules`'. As you can guess, `browser-sync`
-provides us with an in-browser view of our test results.
+This is actually a command that you can run in the terminal. This is a call to
+the testing package, `mocha`, along with a second package, `mocha-multi` that
+helps with reporting. When you run `learn` or `learn test` in a lab, `npm test` _gets called_.
 
-Let's recap what we just did:
-1. Initialized our npm project using `npm init`, which created `package.lock`  
-2. Installed a testing framework, `learn-browser`, with `npm install learn-browser`
-3. Edited the default `npm test` script to run our testing suite when called
+Scripts are often useful for things like testing or to start a necessary
+process, like a local server.
 
+###### Install a Package
 
-## Add a Second Package
+With `package.json` set up, we can now add a package we want to include
+in our project.
 
-The tests are looking for `moment()`, a function that comes with
-[moment.js][moment]. Moment.js is a handy package for displaying dates and
-times.
+Now, we're building a colorful clock - the project is simple enough that we
+_could_ build it entirely out of custom code. Here's the thing though &mdash;
+one of the reasons packages exist and are so useful is because programmers often
+run into the same problems over and over. Node packages are written so we don't
+have to re-find a solution other programmers have found.
 
-Install the `moment` package and run `npm test` once again.
+In the case of a colorful clock, we have to deal with formatting time. This is
+such a common problem, that a package has been created to help us:
+[Moment.js][moment]. Moment.js is a handy package that comes with a number of
+functions that make displaying dates and times simpler than trying to figure out
+JavaScripts built-in functions.
 
-If `package.json` file has the correct packages, and the node module has been
-installed, the test will pass and you should see a colorful clock appear!
+Let's install Moment.js and incorporate into our clock. To install a package and save it to your `package.json` file, run `npm install --save`
+followed by the package name. In our case, that would be:
 
+```bash
+npm install --save moment
+```
+
+This command will add the package to the list of dependencies in `package.json`. When `npm install` is run, all dependencies are installed. If you were to publish this repository on GitHub, other users would now be able to clone down the repo and install whatever is listed in `pakage.json` to get the program working.
+
+If `package.json` file has the correct package, and the node module has been
+installed, open `index.html` and you should see a colorful clock appear!
 
 ## Conclusion
 
 We've departed from the shore and are now afloat on the sea of code. When
 building our own applications, we will often rely on existing packages to handle
-specific pieces of the project.
+specific pieces of a project.
 
-Although we only installed two packages in this lab, there are many layers of
-dependencies for them, and hundreds of additional dependencies were installed.
+Although we only installed one package in this lab, there are many layers of
+dependencies for them, and many of additional dependencies were installed.
 It isn't necessary to understand _how_ each of these works. The main thing to
-grasp is how to implement and use the specific dependencies you need, in this
-case, `learn-browser` and `moment`.
+grasp is how to implement and use the specific dependencies you need.
 
 [moment]: https://momentjs.com/
