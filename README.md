@@ -105,11 +105,11 @@ such a common problem, that a package has been created to help us:
 functions that make displaying dates and times simpler than trying to figure out
 JavaScripts built-in functions.
 
-Let's install Moment.js and incorporate into our clock. To install a package and save it to your `package.json` file, run `npm install --save`
+Let's install Moment.js and incorporate into our clock. To install a package and save it to your `package.json` file, run `npm install`
 followed by the package name. In our case, that would be:
 
 ```bash
-npm install --save moment
+npm install moment
 ```
 
 This command will add the package to the list of dependencies in `package.json`. When `npm install` is run, all dependencies are installed. If you were to publish this repository on GitHub, other users would now be able to clone down the repo and install whatever is listed in `pakage.json` to get the program working.
