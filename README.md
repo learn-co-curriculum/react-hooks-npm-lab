@@ -41,7 +41,7 @@ clock application that changes color every second.
 This lesson already has its own `package.json` file, so a sub-folder has been
 created for us to use, `color-clock`, that contains some basic starter files for
 the project. Change directory into this folder on your terminal before
-continuing.
+continuing using the command `cd color-clock`.
 
 ### Create a `package.json` File
 
