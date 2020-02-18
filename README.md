@@ -13,18 +13,18 @@ dependencies, the dependencies are also downloaded in a recursive manner. For
 the purposes of our own application, however, **we only need to know about the
 node packages _we_ specifically need to get our app working**. We don't need to
 worry about what packages _those_ packages need. Why? Because every node package
-includes a `package.json` file that lists out all dependencies. This file
-lets Node know what to download when we run `npm install`. Node will download
-all the packages, check the `package.json` files present, then download any
-additional packages, and repeat. 
+includes a `package.json` file that lists out all dependencies. This file lets
+Node know what to download when we run `npm install`. Node will download all the
+packages, check the `package.json` files present, then download any additional
+packages, and repeat.
 
 We will see in future labs that as the number of packages increases, more and
 more happens when we run `npm install`. All _we_ need to worry about, though, is
 the top-level - what is listed in _our_ application's `package.json` file.
 
-In this code-along, we are going to practice the process of setting up a `package.json`
-file. We will also install an npm package or two and use their functionality in
-new code we write.
+In this code-along, we are going to practice the process of setting up a
+`package.json` file. We will also install an npm package or two and use their
+functionality in new code we write.
 
 ## Objectives
 
@@ -38,9 +38,36 @@ Before we can create a `package.json` file, we'll need an project and a project
 folder to contain all the files. For this code-along, we'll be building out a
 clock application that changes color every second.
 
-This lesson already has its own `package.json` file, so a sub-folder has been
-created for us to use, `color-clock`, that contains some basic starter files for
-the project. Change directory into this folder in your terminal by typing the command `cd color-clock`.
+In this lesson, a sub-folder has been created for us to use, `color-clock`, that
+contains some basic starter files for a project. If you look at
+`color-clock/index.html`, you'll see a script tag:
+
+```html
+<script src="./node_modules/moment/moment.js"></script>
+```
+
+Reading from the `src` value, this script is expecting a folder called
+`node_modules` in the same directory as the HTML file. Inside `node_modules` is another folder, `moment` which contains `moment.js`.
+
+There is a second script tag in our `index.html` file:
+
+```html
+<script src="index.js"></script>
+```
+
+Taking a look inside `index.js`, we can see that this script relies on a unique
+function call, `moment().format('MMMM Do YYYY, h:mm:ss a')`. Our goal is to get this code working. **We do not need to change `index.js`**. Instead, we will need to set up a `package.json` file and install the [MomentJS](https://momentjs.com/) package.
+
+## Navigate to the Project Directory
+
+The first thing to do is change directory into this folder in your terminal by
+typing the command `cd color-clock`.
+
+> **Note**: The next step will create a `package.json` file in whatever
+> directory you are in, which in turn will be where the `node_modules` folder
+> is. If you do not change directory into `color-clock`, you'll end up creating
+> a file in the main directory of this lesson, and `color-clock/index.html` will
+> be looking for `node_modules` in the wrong directory.
 
 ### Create a `package.json` File
 
