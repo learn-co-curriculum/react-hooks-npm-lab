@@ -73,8 +73,10 @@ Run `npm init` and you will be prompted to confirm the information that will
 be stored in `package.json`, starting with the name of the project.
 
 Most prompts will provide a default value. Some are blank and can be left this
-way for now. Follow the prompts until the end and a fully constructed
-`package.json` file will appear in the `color-clock` directory.
+way for now. Follow the prompts by pressing enter in the terminal on each prompt
+until you reach the end, when you will be prompted to type 'yes' to confirm. A
+fully constructed `package.json` file will then appear in the `color-clock`
+directory.
 
 ### Add a Script
 
