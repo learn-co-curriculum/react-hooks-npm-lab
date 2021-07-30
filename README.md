@@ -118,8 +118,8 @@ process, like a local server.
 With `package.json` set up, we can now add a package we want to include
 in our project.
 
-Now, we're building a colorful clock &mdash; the project is simple enough that
-we _could_ build it entirely out of custom code. Here's the thing though &mdash;
+Now, we're building a colorful clock — the project is simple enough that
+we _could_ build it entirely out of custom code. Here's the thing though —
 one of the reasons packages exist and are so useful is because programmers often
 run into the same problems over and over. Node packages are written so we don't
 have to re-find a solution other programmers have found.
