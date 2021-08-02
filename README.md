@@ -34,7 +34,7 @@ functionality in new code we write.
 
 ## Getting Started
 
-Before we can create a `package.json` file, we'll need an project and a project
+Before we can create a `package.json` file, we'll need a project and a project
 folder to contain all the files. For this code-along, we'll be building out a
 clock application that changes color every second.
 
@@ -85,7 +85,7 @@ write a test script. Let's add a working script in to see how this works.
 
 Open the newly created `package.json` file and look for a section
 titled `"scripts"`. Let's replace the default `"test"` script with
-an shell command:
+a shell command:
 
 ```json
 "scripts": {
@@ -130,7 +130,7 @@ such a common problem, that a package has been created to help us:
 of functions that make displaying dates and times simpler than trying to figure
 out JavaScripts built-in functions.
 
-Let's install `date-fns` and incorporate into our clock. To install a package
+Let's install `date-fns` and incorporate it into our clock. To install a package
 and save it to your `package.json` file, run `npm install` followed by the
 package name. In our case, that would be:
 
