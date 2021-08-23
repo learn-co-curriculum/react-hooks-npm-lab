@@ -134,8 +134,8 @@ Let's install `date-fns` and incorporate it into our clock. To install a package
 and save it to your `package.json` file, run `npm install` followed by the
 package name. In our case, that would be:
 
-```bash
-npm install date-fns
+```console
+$ npm install date-fns
 ```
 
 This command will add the package to the list of dependencies in `package.json`.
@@ -147,8 +147,8 @@ working.
 We'll also need one more package to run our application in the browser. Run
 this command:
 
-```sh
-npm install serve
+```console
+$ npm install serve
 ```
 
 This [`serve`](https://www.npmjs.com/package/serve) package will run a
