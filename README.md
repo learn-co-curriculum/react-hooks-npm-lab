@@ -69,8 +69,8 @@ typing the command `cd color-clock`.
 The `package.json` can be written quickly from scratch, but we actually have a
 handy command for creating these files: `npm init`.
 
-Run `npm init` and you will be prompted to confirm the information that will
-be stored in `package.json`, starting with the name of the project.
+Run `npm init` and you will be prompted to confirm the information that will be
+stored in `package.json`, starting with the name of the project.
 
 Most prompts will provide a default value. Some are blank and can be left this
 way for now. Follow the prompts by pressing enter in the terminal on each prompt
@@ -80,12 +80,11 @@ directory.
 
 ### Add a Script
 
-In the process of creating the `package.json` file, you were prompted to
-write a test script. Let's add a working script in to see how this works.
+In the process of creating the `package.json` file, you were prompted to write a
+test script. Let's add a working script in to see how this works.
 
-Open the newly created `package.json` file and look for a section
-titled `"scripts"`. Let's replace the default `"test"` script with
-a shell command:
+Open the newly created `package.json` file and look for a section titled
+`"scripts"`. Let's replace the default `"test"` script with a shell command:
 
 ```json
 "scripts": {
@@ -115,14 +114,14 @@ process, like a local server.
 
 ### Install a Package
 
-With `package.json` set up, we can now add a package we want to include
-in our project.
+With `package.json` set up, we can now add a package we want to include in our
+project.
 
-Now, we're building a colorful clock — the project is simple enough that
-we _could_ build it entirely out of custom code. Here's the thing though:
-one of the reasons packages exist and are so useful is because programmers often
-run into the same problems over and over. Node packages are written so we don't
-have to re-find a solution other programmers have found.
+Now, we're building a colorful clock — the project is simple enough that we
+_could_ build it entirely out of custom code. Here's the thing though: one of
+the reasons packages exist and are so useful is because programmers often run
+into the same problems over and over. Node packages are written so we don't have
+to re-find a solution other programmers have found.
 
 In the case of a colorful clock, we have to deal with formatting time. This is
 such a common problem, that a package has been created to help us:
@@ -144,8 +143,8 @@ publish this repository on GitHub, other users would now be able to clone down
 the repo and install whatever is listed in `package.json` to get the program
 working.
 
-We'll also need one more package to run our application in the browser. Run
-this command:
+We'll also need one more package to run our application in the browser. Run this
+command:
 
 ```console
 $ npm install serve
@@ -163,7 +162,7 @@ lightweight server. We can set up another npm script to run the server using the
 ```
 
 Run `npm start` to run this script, and open up
-[localhost:5000](http://localhost:5000) in the browser.
+[localhost:3000](http://localhost:3000) in the browser.
 
 If `package.json` file has the correct package, and the node module has been
 installed, you should see a colorful clock appear!
