@@ -51,7 +51,8 @@ function call, `format(new Date(), "MMMM do yyyy, h:mm:ss a")`. We're also
 **importing** that function from a `node_modules` folder that contains a date
 formatting library called `date-fns`. Our goal is to get this code working. **We
 do not need to change `index.js`**. Instead, we will need to set up a
-`package.json` file and install the [`date-fns`][date-fns] package.
+`package.json` file and install the [`date-fns`](https://www.npmjs.com/package/date-fns)
+package.
 
 ## Navigate to the Project Directory
 
@@ -176,4 +177,4 @@ them so many additional dependencies were installed as well. It isn't necessary
 to understand _how_ each of these works. The main thing to grasp is how to
 implement and use the specific dependencies you need.
 
-[date-fns]: (https://date-fns.org/)
+[date-fns]: (https://www.npmjs.com/package/date-fns)
