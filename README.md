@@ -152,7 +152,7 @@ $ npm install serve
 ```
 
 This [`serve`](https://www.npmjs.com/package/serve) package will run a
-lightweight server. We can set up another npm script to run the server using the
+lightweight server. Set up another npm script to run the server using the
 `serve` package:
 
 ```json
