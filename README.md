@@ -51,8 +51,8 @@ function call, `format(new Date(), "MMMM do yyyy, h:mm:ss a")`. We're also
 **importing** that function from a `node_modules` folder that contains a date
 formatting library called `date-fns`. Our goal is to get this code working. **We
 do not need to change `index.js`**. Instead, we will need to set up a
-`package.json` file and install the [`date-fns`](https://www.npmjs.com/package/date-fns)
-package.
+`package.json` file and install the
+[`date-fns`](https://www.npmjs.com/package/date-fns) package.
 
 ## Navigate to the Project Directory
 
@@ -122,7 +122,7 @@ Now, we're building a colorful clock — the project is simple enough that we
 _could_ build it entirely out of custom code. Here's the thing though: one of
 the reasons packages exist and are so useful is because programmers often run
 into the same problems over and over. Node packages are written so we don't have
-to re-find a solution other programmers have found.
+to recreate a solution to a problem other programmers have already solved.
 
 In the case of a colorful clock, we have to deal with formatting time. This is
 such a common problem, that a package has been created to help us:
