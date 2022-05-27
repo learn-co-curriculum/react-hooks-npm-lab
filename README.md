@@ -122,7 +122,7 @@ Now, we're building a colorful clock — the project is simple enough that we
 _could_ build it entirely out of custom code. Here's the thing though: one of
 the reasons packages exist and are so useful is because programmers often run
 into the same problems over and over. Node packages are written so we don't have
-to recreate a solution other programmers have already created.
+to recreate a solution to a problem other programmers have already solved.
 
 In the case of a colorful clock, we have to deal with formatting time. This is
 such a common problem, that a package has been created to help us:
