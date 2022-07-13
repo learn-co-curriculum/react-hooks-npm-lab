@@ -107,8 +107,8 @@ will have something like this:
 
 This is actually a command that you can run in the terminal. This is a call to
 the testing package, `mocha`, along with a second package, `mocha-multi` that
-helps with reporting. When you run `learn` or `learn test` in a lab, `npm test`
-_gets called_.
+helps with reporting. When you run `learn test` in a lab, `npm test` _gets
+called_.
 
 Scripts are often useful for things like testing or to start a necessary
 process, like a local server.
