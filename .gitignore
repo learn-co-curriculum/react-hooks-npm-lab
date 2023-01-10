@@ -31,7 +31,3 @@ jspm_packages
 
 # Learn-specific .results.json
 .results.json
-
-# Package lockfiles
-package-lock.json
-yarn.lock
