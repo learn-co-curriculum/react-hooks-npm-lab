@@ -1,0 +1,32 @@
+{
+  "name": "react-hooks-npm-lab",
+  "version": "1.0.0",
+  "description": "NPM Lab for Flatiron School",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha --timeout 5000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://github.com/learn-co-curriculum/react-hooks-npm-lab.git"
+  },
+  "keywords": [
+    "flatiron school",
+    "javascript",
+    "npm"
+  ],
+  "author": "Flatiron School",
+  "license": "CC-BY-NC-SA-4.0",
+  "bugs": {
+    "url": "https://github.com/learn-co-curriculum/react-hooks-npm-lab/issues"
+  },
+  "homepage": "https://github.com/learn-co-curriculum/react-hooks-npm-lab#readme",
+  "devDependencies": {
+    "chai": "4.1.2",
+    "mocha": "5.2.0",
+    "mocha-jsdom": "~1.1.0"
+  }
+}
