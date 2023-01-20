@@ -59,11 +59,24 @@ do not need to change `index.js`**. Instead, we will need to set up a
 The first thing to do is change directory into this folder in your terminal by
 typing the command `cd color-clock`.
 
-> **Note**: The next step will create a `package.json` file in whatever
-> directory you are in, which in turn will be where the `node_modules` folder
-> is. If you do not change directory into `color-clock`, you'll end up creating
-> a file in the main directory of this lesson, and `color-clock/index.js` will
-> be looking for `node_modules` in the wrong directory.
+The next step will create a `package.json` file in whatever directory you are
+in, which in turn will be where the `node_modules` folder is.
+
+You may have already noticed, the root directory already has a `package.json`.
+This is there for submission purposes when you turn in this code-along through
+CodeGrade. This is **not** the package.json you will be working in, you need to
+create a new one.
+
+If you do not change directory into `color-clock`, you'll end up working on the
+file in the main directory of this lesson, and `color-clock/index.js` will be
+looking for `node_modules` in the wrong directory.
+
+So, be sure to change directory into `color-clock`!
+
+> **Note**: If your course does not use CodeGrade to submit lessons, please
+> ignore. You should still change directories into `color-clock` to complete
+> this code-along, but you do not need to worry about submitting anything
+> through CodeGrade.
 
 ### Create a package.json File
 
