@@ -20,15 +20,14 @@
       "last 1 safari version"
     ]
   },
-  "description": "## Learning Goals",
   "main": "index.js",
   "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/learn-co-curriculum/react-hooks-npm-lab.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Flatiron School",
+  "license": "CC-BY-NC-SA-4.0",
   "bugs": {
     "url": "https://github.com/learn-co-curriculum/react-hooks-npm-lab/issues"
   },
