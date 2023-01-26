@@ -34,13 +34,17 @@ functionality in new code we write.
 
 ## Getting Started
 
-Before we can create a `package.json` file, we'll need a project and a project
-folder to contain all the files. For this code-along, we'll be building out a
-clock application that changes color every second.
+Before we create our `package.json` file, take a moment to look at the
+`package.json` file that is already at the top level of the directory for this
+code-along. If you look at the "name" attribute at the top, you will see that it
+is the same as the name of the directory, `react-hooks-npm-lab`. This is the
+`package.json` file that belongs to this code-along; you **should not** make any
+changes to this file! Instead, we will build out a simple application **within**
+this lesson's directory and create a `package.json` file for that application.
 
-In this lesson, a sub-folder has been created for us to use, `color-clock`, that
-contains some basic starter files for a project. If you look at
-`color-clock/index.html`, you'll see a script tag:
+Note that this lesson's files include a sub-folder, `color-clock`, that contains
+some basic starter files for a project. If you look at `color-clock/index.html`,
+you'll see a script tag:
 
 ```html
 <script src="index.js" type="module"></script>
@@ -59,24 +63,12 @@ do not need to change `index.js`**. Instead, we will need to set up a
 The first thing to do is change directory into this folder in your terminal by
 typing the command `cd color-clock`.
 
-The next step will create a `package.json` file in whatever directory you are
-in, which in turn will be where the `node_modules` folder is.
+The next step is to create a `package.json` file in the `color-clock` directory,
+which in turn will be where the `node_modules` folder is.
 
-You may have already noticed, the root directory already has a `package.json`.
-This is there for submission purposes when you turn in this code-along through
-CodeGrade. This is **not** the package.json you will be working in, you need to
-create a new one.
-
-If you do not change directory into `color-clock`, you'll end up working on the
-file in the main directory of this lesson, and `color-clock/index.js` will be
-looking for `node_modules` in the wrong directory.
-
-So, be sure to change directory into `color-clock`!
-
-> **Note**: If your course does not use CodeGrade to submit lessons, please
-> ignore. You should still change directories into `color-clock` to complete
-> this code-along, but you do not need to worry about submitting anything
-> through CodeGrade.
+**Important:** to avoid overwriting the `package.json` file for this code-along
+be sure to change directory into `color-clock` before creating the
+`package.json` file!
 
 ### Create a package.json File
 
@@ -111,17 +103,17 @@ the terminal (if that doesn't work, try `npm run test`). You should see a print
 out of `Hello World!`.
 
 In all the JavaScript-based labs you've encountered so far, this sort of script
-is how we run tests. If you look at the `"test"` script on previous labs, most
-will have something like this:
+is how we run tests. If you look at the `"test"` script on JavaScript labs in
+the previous phase, most will have something like this:
 
 ```txt
 "test": "mocha -R mocha-multi --reporter-options spec=-,json=.results.json"
 ```
 
-This is actually a command that you can run in the terminal. This is a call to
-the testing package, `mocha`, along with a second package, `mocha-multi` that
-helps with reporting. When you run `learn test` in a lab, `npm test` _gets
-called_.
+The mocha command is actually a command that you can run in the terminal. This
+is a call to the testing package, `mocha`, along with a second package,
+`mocha-multi` that helps with reporting. When you run `npm test` in a lab, the
+command specified in the "test" script is what gets called.
 
 Scripts are often useful for things like testing or to start a necessary
 process, like a local server.
