@@ -1,7 +1,6 @@
 {
   "name": "color-clock",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo 'Hello World!'",
@@ -12,5 +11,7 @@
   "dependencies": {
     "date-fns": "^2.29.3",
     "serve": "^14.2.0"
-  }
+  },
+  "devDependencies": {},
+  "description": ""
 }
