@@ -199,13 +199,22 @@ Then we'll add a script to run the build:
 "build": "esbuild index.js --bundle --outfile=dist/out.js"
 ```
 
-When we run a build using `esbuild`, it makes sure that all the
-dependencies are included and up to date, and combines the code from multiple
-files into a single file that is ready to be loaded in the browser.
+When we run a build using `esbuild`, it makes sure that all the dependencies are
+included and up to date, and combines the code from multiple files into a single
+file that is ready to be loaded in the browser. Note that the name of this file
+is specified in the build command above: `dist/out.js`.
 
-Run `npm run build` to run the build, then run `npm start` to start the server.
-Open up [localhost:3000](http://localhost:3000) in the browser. You should now
-see a colorful clock appear!
+Go ahead and run `npm run build`. You should now see the `dist` folder in your
+file tree and the `out.js` file inside it. The final step is to update the
+script in the `index.html` file to use this new file. Find this line:
+
+```html
+<script src="index.js" type="module"></script>
+```
+
+Change the src to `dist/out.js`. Now we're finally ready to start the server.
+Run `npm start` then open up [localhost:3000](http://localhost:3000) in the
+browser. You should now see a colorful clock appear!
 
 ## Conclusion
 
