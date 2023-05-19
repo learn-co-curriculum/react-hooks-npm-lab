@@ -149,16 +149,17 @@ publish this repository on GitHub, other users would now be able to clone down
 the repo and install whatever is listed in `package.json` to get the program
 working.
 
-We'll also need one more package to run our application in the browser. Run this
+The second package we'll need to run our application in the browser is
+[`serve`][serve], which will run a lightweight server. To install it, run this
 command:
 
 ```console
 $ npm install serve
 ```
 
-This [`serve`](https://www.npmjs.com/package/serve) package will run a
-lightweight server. Set up another npm script to run the server using the
-`serve` package:
+[serve]: https://www.npmjs.com/package/serve
+
+Set up another npm script to run the server using the `serve` package:
 
 ```json
 "scripts": {
@@ -167,11 +168,44 @@ lightweight server. Set up another npm script to run the server using the
 }
 ```
 
-Run `npm start` to run this script, and open up
-[localhost:3000](http://localhost:3000) in the browser.
+If you run `npm start` to run the script and open
+[localhost:3000](http://localhost:3000) in the browser, you will see that the
+clock is not appearing. Go ahead and open the console and you'll see that
+we're getting an error:
 
-If `package.json` file has the correct package, and the node module has been
-installed, you should see a colorful clock appear!
+```console
+Uncaught TypeError: Failed to resolve module specifier "@babel/runtime/helpers/esm/typeof". Relative references must start with either "/", "./", or "../".
+```
+
+The specifics of this error are beyond the scope of this lesson, but basically
+what it means is that not all of the files in our project are currently set up
+to be interpretable by the browser. Before we can get our clock running
+correctly, we need to install one more tool, `esbuild`. `esbuild` is a
+JavaScript bundler, which is a tool that handles all of a project's
+dependencies, and combines the code into a single file that is browser-ready.
+There are a number of different JavaScript bundlers available; we're using
+`esbuild` because it is relatively easy to configure and works fine for our
+simple application.
+
+Stop the server with `ctrl-c`, then install `esbuild`:
+
+```console
+$ npm install esbuild
+```
+
+Then we'll add a script to run the build:
+
+```json
+"build": "esbuild index.js --bundle --outfile=dist/out.js"
+```
+
+When we run a build using `esbuild`, it makes sure that all the
+dependencies are included and up to date, and combines the code from multiple
+files into a single file that is ready to be loaded in the browser.
+
+Run `npm run build` to run the build, then run `npm start` to start the server.
+Open up [localhost:3000](http://localhost:3000) in the browser. You should now
+see a colorful clock appear!
 
 ## Conclusion
 
