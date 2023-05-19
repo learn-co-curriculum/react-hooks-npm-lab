@@ -87,7 +87,8 @@ directory.
 ### Add a Script
 
 In the process of creating the `package.json` file, you were prompted to write a
-test script. Let's add a working script in to see how this works.
+test script. We left it blank at that time, but we can add it to the
+`package.json` file ourselves. Let's do that now to see how this works.
 
 Open the newly created `package.json` file and look for a section titled
 `"scripts"`. Let's replace the default `"test"` script with a shell command:
@@ -99,8 +100,8 @@ Open the newly created `package.json` file and look for a section titled
 ```
 
 We can now call this script and have it run by using the command `npm test` in
-the terminal (if that doesn't work, try `npm run test`). You should see a print
-out of `Hello World!`.
+the terminal (if that doesn't work, try `npm run test`). You should see a
+printout of `Hello World!`.
 
 In all the JavaScript-based labs you've encountered so far, this sort of script
 is how we run tests. If you look at the `"test"` script on JavaScript labs in
@@ -150,8 +151,7 @@ the repo and install whatever is listed in `package.json` to get the program
 working.
 
 The second package we'll need to run our application in the browser is
-[`serve`][serve], which will run a lightweight server. To install it, run this
-command:
+[`serve`][serve], which will run a lightweight server. To install it, we run:
 
 ```console
 $ npm install serve
@@ -159,7 +159,8 @@ $ npm install serve
 
 [serve]: https://www.npmjs.com/package/serve
 
-Set up another npm script to run the server using the `serve` package:
+Next, in the `"scripts"` section in `package.json`, let's add an npm script to
+run the server using the `serve` package:
 
 ```json
 "scripts": {
@@ -193,10 +194,14 @@ Stop the server with `ctrl-c`, then install `esbuild`:
 $ npm install esbuild
 ```
 
-Then we'll add a script to run the build:
+Then we'll add one more script to run the build:
 
 ```json
-"build": "esbuild index.js --bundle --outfile=dist/out.js"
+"scripts": {
+  "test": "echo 'Hello World!'",
+  "start": "serve",
+  "build": "esbuild index.js --bundle --outfile=dist/out.js"
+}
 ```
 
 When we run a build using `esbuild`, it makes sure that all the dependencies are
@@ -212,9 +217,9 @@ script in the `index.html` file to use this new file. Find this line:
 <script src="index.js" type="module"></script>
 ```
 
-Change the src to `dist/out.js`. Now we're finally ready to start the server.
-Run `npm start` then open up [localhost:3000](http://localhost:3000) in the
-browser. You should now see a colorful clock appear!
+Change the `src` property to `dist/out.js`. Now we're finally ready to start the
+server. Run `npm start` then open up [localhost:3000](http://localhost:3000) in
+the browser. You should now see a colorful clock appear!
 
 ## Conclusion
 
