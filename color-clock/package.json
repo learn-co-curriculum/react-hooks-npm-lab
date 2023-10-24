@@ -1,0 +1,16 @@
+{
+  "name": "color-clock",
+  "version": "1.0.0",
+  "description": "",
+  "main": "^C",
+  "scripts": {
+    "test": "echo 'hello world!'",
+    "start": "serve"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "date-fns": "^2.30.0",
+    "serve": "^14.2.1"
+  }
+}
