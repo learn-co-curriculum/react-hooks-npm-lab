@@ -141,8 +141,9 @@ and save it to your `package.json` file, run `npm install` followed by the
 package name. In our case, that would be:
 
 ```console
-$ npm install date-fns
+$ npm install date-fns@2.30.0
 ```
+NOTE: We are specifying 2.30.0 as newer versions of date-fns will not work with this lab. We can always specify the version of our packages using `@`!
 
 This command will add the package to the list of dependencies in `package.json`.
 When `npm install` is run, all dependencies are installed. If you were to
